@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  body {
+    font-family: "manrope";
+  }
+  @font-face {
+    font-family: "manrope";
+    src: local(""), url("/fonts/manrope.ttf");
+  }
+
+  h1 {
+    @apply font-bold text-4xl;
+  }
+  h2 {
+    @apply font-bold text-2xl;
+  }
+  h3 {
+    @apply font-bold text-xl;
+  }
+  p {
+    @apply text-base;
+  }
+  span {
+    @apply text-inherit;
+  }
+}
