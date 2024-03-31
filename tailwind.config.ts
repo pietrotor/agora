@@ -18,6 +18,9 @@ const config: Config = {
         secondary: {
           DEFAULT: "#19417F",
         },
+        text: {
+          DEFAULT: "#333",
+        },
       },
     },
   },

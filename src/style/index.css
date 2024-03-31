@@ -17,19 +17,28 @@
     src: local(""), url("/fonts/manrope.ttf");
   }
 
+  body {
+    @apply text-text;
+  }
+
   h1 {
-    @apply font-bold text-4xl;
+    @apply font-bold text-4xl text-secondary;
   }
   h2 {
-    @apply font-bold text-2xl;
+    @apply font-bold text-2xl text-secondary;
   }
   h3 {
-    @apply font-bold text-xl;
+    @apply font-bold text-xl text-secondary;
   }
   p {
-    @apply text-base;
+    @apply text-inherit text-text;
   }
   span {
-    @apply text-inherit;
+    @apply text-inherit text-text;
   }
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
 }
