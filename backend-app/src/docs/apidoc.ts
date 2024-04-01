@@ -1,4 +1,5 @@
 import { createUser, createUserBody, deleteUser, getUser, getUsers, updateUser, updateUserBody } from './users';
+import { createContact, createContactBody } from './contact';
 
 const apiDocumentation = {
   openapi: '3.0.1',
@@ -19,7 +20,7 @@ const apiDocumentation = {
   },
   servers: [
     {
-      url: 'http://localhost:4500/',
+      url: 'http://localhost:4000/',
       description: 'Local Server',
     },
     {
@@ -29,10 +30,10 @@ const apiDocumentation = {
   ],
   tags: [
     {
-      name: 'Roles',
+      name: 'Users',
     },
     {
-      name: 'Users',
+      name: 'Contacts',
     },
   ],
   paths: {
@@ -44,6 +45,9 @@ const apiDocumentation = {
       delete: deleteUser,
       get: getUser,
       patch: updateUser,
+    },
+    contacts: {
+      post: createContact,
     },
   },
   components: {
@@ -57,6 +61,7 @@ const apiDocumentation = {
     schemas: {
       createUserBody,
       updateUserBody,
+      createContactBody,
     },
   },
 };
