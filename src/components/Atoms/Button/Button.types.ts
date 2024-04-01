@@ -5,12 +5,19 @@ enum ButtonVariantEnum {
   SECONDARY = "secondary",
 }
 
+enum ButtonSizeEnum {
+  LG = "lg",
+  MD = "md",
+}
+
 type ButtonProps = {
   children: ReactNode;
   onClick?: () => void;
   variant?: ButtonVariantEnum;
   type?: HTMLButtonElement["type"];
+  size?: ButtonSizeEnum;
 };
 
-export { ButtonVariantEnum };
 export type { ButtonProps };
+
+export { ButtonVariantEnum, ButtonSizeEnum };

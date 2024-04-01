@@ -9,9 +9,7 @@ const manrope = Manrope({ subsets: ["latin"] });
 const UserLayout: React.FC<UserLayoutProps> = ({ children }) => {
   return (
     <>
-      <header className={manrope.className}>
-        <UserNavBar menu={MENU} />
-      </header>
+      <UserNavBar menu={MENU} />
       {children}
       <Footer />
     </>
