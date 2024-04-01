@@ -1,5 +1,11 @@
 "use client";
-import { Button, HamburgerIcon, NavItem, LagButtons } from "@/components/Atoms";
+import {
+  Button,
+  HamburgerIcon,
+  NavItem,
+  LagButtons,
+  ButtonSizeEnum,
+} from "@/components/Atoms";
 import Image from "next/image";
 import { useUserNavBarState } from "./hooks";
 import { MenuMobile } from "../MobileMenu";
@@ -8,7 +14,7 @@ import { UserNavBarProps } from "./UserNavBar.types";
 const UserNavBar = ({ menu }: UserNavBarProps) => {
   const { handleToggle, isMenuOpen } = useUserNavBarState();
   return (
-    <div className="w-full bg-white shadow-2xl relative">
+    <header className="w-full bg-white shadow-2xl relative lg:sticky top-0 z-[99]">
       <div className=" flex justify-between max-w-[1140px] px-4 m-auto lg:px-0 py-3 gap-7">
         <Image
           width={110}
@@ -28,9 +34,12 @@ const UserNavBar = ({ menu }: UserNavBarProps) => {
           </a>
         </nav>
         <div className="flex items-center lg:hidden w-full justify-end">
+          <div className="mr-20 block sm:hidden">
+            <Button size={ButtonSizeEnum.MD}>Donar</Button>
+          </div>
           <button
             type="button"
-            className="appearance-none outline-none p-1 h-fit bg-gray-100 text-white rounded"
+            className="appearance-none outline-none p-1 h-fit bg-gray-100 text-text rounded"
             onClick={handleToggle}
           >
             <HamburgerIcon stroke={3} />
@@ -42,7 +51,7 @@ const UserNavBar = ({ menu }: UserNavBarProps) => {
         </div>
       </div>
       <MenuMobile isOpen={isMenuOpen} menu={menu} />
-    </div>
+    </header>
   );
 };
 

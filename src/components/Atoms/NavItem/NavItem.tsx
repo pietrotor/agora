@@ -19,7 +19,7 @@ const NavItem = ({ label, subItems = [], url }: NavItemProps) => {
         onMouseEnter={handleHover}
         onMouseLeave={handleRemoveHover}
         className={clsx(
-          "absolute top-7 group-hover:opacity-100 flex-col gap-3 lg:opacity-0 bg-gray-300 transition-all duration-500 py-1",
+          "absolute top-7 z-[99] group-hover:opacity-100 flex-col gap-3 lg:opacity-0 bg-gray-300 transition-all duration-500 py-1",
           !isVisibleSubItems && !isSubMenuOpen ? "hidden" : "flex lg:flex"
         )}
       >

@@ -1,18 +1,29 @@
-import { Slider, TImage, UserLayout } from "@/components";
+import {
+  Contact,
+  Impact,
+  News,
+  OpenPositions,
+  OurFinanciers,
+  OurPartners,
+  Slider,
+  UserLayout,
+  WhatWeDo,
+} from "@/components";
+import { HOME_SLIDER_IMAGES } from "@/utils";
 
 export default function Home() {
-  const IMAGES: TImage[] = [
-    {
-      desktop:
-        "https://agora2030.org/wp-content/uploads/2024/01/Banner-sitio-web-1-jpg.webp",
-      mobile:
-        "https://agora2030.org/wp-content/uploads/2024/01/Banner-cel-1-jpg.webp",
-    },
-    "https://agora2030.org/wp-content/uploads/2024/01/Formando-Catalizadores_Cel-1-jpg.webp",
-  ];
   return (
     <UserLayout>
-      <Slider images={IMAGES} />
+      <div className="w-full space-y-28">
+        <Slider images={HOME_SLIDER_IMAGES} />
+        <WhatWeDo />
+        <News />
+        <OurPartners />
+        <OurFinanciers />
+        <Impact />
+        <OpenPositions />
+        <Contact />
+      </div>
     </UserLayout>
   );
 }

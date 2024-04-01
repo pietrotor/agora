@@ -1,18 +1,21 @@
 import clsx from "clsx";
-import { ButtonProps, ButtonVariantEnum } from "./Button.types";
+import { ButtonProps, ButtonSizeEnum, ButtonVariantEnum } from "./Button.types";
+import { ButtonSizeMap } from "./constants";
 
 const Button = ({
   children,
   onClick,
   variant = ButtonVariantEnum.PRIMARY,
   type = "button",
+  size = ButtonSizeEnum.MD,
 }: ButtonProps) => {
   return (
     <button
       type={type}
       onClick={onClick}
       className={clsx(
-        "px-8 py-[2px] rounded-full text-white font-normal text-[13px]",
+        "rounded-full text-white",
+        ButtonSizeMap[size],
         {
           "bg-primary": variant === ButtonVariantEnum.PRIMARY,
         },
