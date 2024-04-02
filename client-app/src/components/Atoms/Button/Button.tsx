@@ -13,6 +13,7 @@ const Button = ({
   isLoading,
   href,
   isExternalLink = false,
+  disabled = false,
 }: ButtonProps) => {
   if (href) {
     return (
@@ -43,7 +44,7 @@ const Button = ({
     <button
       type={type}
       onClick={onClick}
-      disabled={isLoading}
+      disabled={isLoading || disabled}
       className={clsx(
         "rounded-full text-white",
         ButtonSizeMap[size],

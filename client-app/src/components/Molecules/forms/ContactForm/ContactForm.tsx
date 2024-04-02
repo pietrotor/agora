@@ -1,14 +1,16 @@
-'use client';
+"use client";
 
-import { Controller } from 'react-hook-form';
-import { useContactFormState } from './hooks';
+import ReCAPTCHA from "react-google-recaptcha";
+import { Controller } from "react-hook-form";
+import { useContactFormState } from "./hooks";
 import {
   Button,
   ButtonSizeEnum,
   Input,
   InputColorEnum,
-} from '@/components/Atoms';
-import { useContactController } from '@/hooks';
+} from "@/components/Atoms";
+import { useContactController } from "@/hooks";
+import { useRef } from "react";
 
 const ContactForm = () => {
   const {
@@ -17,6 +19,7 @@ const ContactForm = () => {
     setSuccesMesage,
     succesMesage,
   } = useContactFormState();
+  const recaptcha = useRef<any>();
 
   const { handleCreateContact, isLoading } = useContactController();
 
@@ -26,7 +29,7 @@ const ContactForm = () => {
         control={control}
         name="name"
         rules={{
-          required: 'Campo requerido',
+          required: "Campo requerido",
         }}
         render={({ field: { value, name, onChange } }) => (
           <div>
@@ -49,7 +52,7 @@ const ContactForm = () => {
         control={control}
         name="profession"
         rules={{
-          required: 'Campo requerido',
+          required: "Campo requerido",
         }}
         render={({ field: { value, name, onChange } }) => (
           <div>
@@ -72,7 +75,7 @@ const ContactForm = () => {
         control={control}
         name="lastName"
         rules={{
-          required: 'Campo requerido',
+          required: "Campo requerido",
         }}
         render={({ field: { value, name, onChange } }) => (
           <div>
@@ -95,7 +98,7 @@ const ContactForm = () => {
         control={control}
         name="business"
         rules={{
-          required: 'Campo requerido',
+          required: "Campo requerido",
         }}
         render={({ field: { value, name, onChange } }) => (
           <div>
@@ -118,10 +121,10 @@ const ContactForm = () => {
         control={control}
         name="email"
         rules={{
-          required: 'Campo requerido',
+          required: "Campo requerido",
           pattern: {
             value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i,
-            message: 'Dirección de correo electrónico inválida',
+            message: "Dirección de correo electrónico inválida",
           },
         }}
         render={({ field: { value, name, onChange } }) => (
@@ -145,7 +148,7 @@ const ContactForm = () => {
         control={control}
         name="country"
         rules={{
-          required: 'Campo requerido',
+          required: "Campo requerido",
         }}
         render={({ field: { value, name, onChange } }) => (
           <div>
@@ -164,6 +167,8 @@ const ContactForm = () => {
           </div>
         )}
       />
+      <ReCAPTCHA ref={recaptcha} sitekey={process.env.NEXT_PUBLIC_SITE_KEY!} />
+
       <div className="col-span-1 space-y-4 md:col-span-2">
         {succesMesage && (
           <p className="text-green-400">
@@ -173,19 +178,25 @@ const ContactForm = () => {
         )}
         <Button
           size={ButtonSizeEnum.LG}
-          onClick={handleSubmit((data) =>
-            handleCreateContact(data, () => {
-              reset({
-                business: '',
-                country: '',
-                email: '',
-                lastName: '',
-                name: '',
-                profession: '',
-              });
-              setSuccesMesage(true);
-            }),
-          )}
+          disabled={recaptcha.current?.getValue()}
+          onClick={() => {
+            if (!recaptcha.current?.getValue()) {
+              return;
+            }
+            handleSubmit((data) =>
+              handleCreateContact(data, () => {
+                reset({
+                  business: "",
+                  country: "",
+                  email: "",
+                  lastName: "",
+                  name: "",
+                  profession: "",
+                });
+                setSuccesMesage(true);
+              })
+            )();
+          }}
           isLoading={isLoading}
         >
           Envíar
