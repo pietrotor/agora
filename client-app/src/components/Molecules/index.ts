@@ -4,3 +4,4 @@ export * from "./Slider";
 export * from "./ServiceCard";
 export * from "./InfiniteSlider";
 export * from "./forms";
+export * from "./ArticleCard";

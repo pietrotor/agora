@@ -8,12 +8,16 @@ import {
   Input,
   InputColorEnum,
 } from "@/components/Atoms";
+import { useContactController } from "@/hooks";
 
 const ContactForm = () => {
   const {
-    form: { control },
+    form: { control, handleSubmit, reset },
     getInputError,
   } = useContactFormState();
+
+  const { handleCreateContact, isLoading } = useContactController();
+
   return (
     <form className="w-full grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
       <Controller
@@ -159,7 +163,24 @@ const ContactForm = () => {
         )}
       />
       <div>
-        <Button size={ButtonSizeEnum.LG}>Envíar</Button>
+        <Button
+          size={ButtonSizeEnum.LG}
+          onClick={handleSubmit((data) =>
+            handleCreateContact(data, () =>
+              reset({
+                business: "",
+                country: "",
+                email: "",
+                lastName: "",
+                name: "",
+                profession: "",
+              })
+            )
+          )}
+          isLoading={isLoading}
+        >
+          Envíar
+        </Button>
       </div>
     </form>
   );

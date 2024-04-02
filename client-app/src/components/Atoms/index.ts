@@ -6,3 +6,4 @@ export * from "./LinkedText";
 export * from "./Chip";
 export * from "./CountUp";
 export * from "./Input";
+export * from "./loaders";

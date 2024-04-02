@@ -4,6 +4,7 @@ type ArticleCardProps = {
   description: string;
   category: string;
   url?: string;
+  isExternalUrl?: boolean;
 };
 
 export type { ArticleCardProps };

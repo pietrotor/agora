@@ -3,7 +3,7 @@ interface ContactDto {
   name: string;
   lastName: string;
   email: string;
-  bussiness: string;
+  business: string;
   profession: string;
   country: string;
 }
