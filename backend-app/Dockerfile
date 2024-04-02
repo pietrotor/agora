@@ -13,9 +13,6 @@ RUN npm i -D typescript
 # Copiar archivos de la aplicación
 COPY . .
 
-# Generar código si es necesario
-RUN npm run codegen
-
 # Compilar la aplicación
 RUN npm run build
 

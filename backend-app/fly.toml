@@ -1,16 +1,15 @@
-# fly.toml app configuration file generated for agora-api on 2024-04-02T13:36:26-04:00
+# fly.toml app configuration file generated for agora-rest-api on 2024-04-02T13:49:40-04:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'agora-api'
+app = 'agora-rest-api'
 primary_region = 'scl'
 
 [build]
-  image = 'flyio/hellofly:latest'
 
 [http_service]
-  internal_port = 8080
+  internal_port = 4000
   force_https = true
   auto_stop_machines = true
   auto_start_machines = true
