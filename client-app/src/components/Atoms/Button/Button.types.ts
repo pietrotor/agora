@@ -19,6 +19,7 @@ type ButtonProps = {
   isLoading?: boolean;
   href?: string;
   isExternalLink?: boolean;
+  disabled?: boolean;
 };
 
 export type { ButtonProps };
