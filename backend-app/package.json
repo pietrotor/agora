@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --no-notify --respawn --transpile-only src/index",
+    "start": "node -r tsconfig-paths/register -r ts-node/register/transpile-only build/index.js",
     "eslint:fix": "eslint --fix",
     "build": "tsc"
   },
