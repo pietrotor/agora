@@ -1,9 +1,9 @@
 /* eslint-disable multiline-ternary */
 /* eslint-disable quote-props */
-import { useInfiniteQuery } from "@tanstack/react-query";
-import { queryKeys } from "./query-keys";
-import newsApi from "@/lib/blogConfig";
-import { BlogResponse } from "@/interfaces";
+import { useInfiniteQuery } from '@tanstack/react-query';
+import { queryKeys } from './query-keys';
+import newsApi from '@/lib/blogConfig';
+import { BlogResponse } from '@/interfaces';
 
 export type TGetNews = {
   page?: number;
@@ -12,15 +12,15 @@ export type TGetNews = {
 
 export const getNews = async ({
   page = 1,
-  pageSize = 30,
+  pageSize = 15,
 }: TGetNews): Promise<BlogResponse> => {
   return newsApi
-    .get("/everything", {
+    .get('/everything', {
       params: {
         page,
         pageSize,
-        language: "es",
-        q: "a",
+        language: 'es',
+        q: 'a',
       },
     })
     .then(({ data }) => data);

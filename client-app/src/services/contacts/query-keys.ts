@@ -1,4 +1,6 @@
+import { TGetContacts } from './get-contacts';
+
 const queryKeys = {
-  all: () => ["contacts"],
+  all: (params: TGetContacts) => ['contacts'],
 };
 export { queryKeys };

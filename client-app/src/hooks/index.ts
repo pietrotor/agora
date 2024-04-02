@@ -1,3 +1,4 @@
-export * from "./useWindowWidth";
+export * from './useWindowWidth';
+export * from './usePagination';
 
-export * from "./use-contact-controller";
+export * from './use-contact-controller';

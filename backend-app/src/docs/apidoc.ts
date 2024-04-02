@@ -1,5 +1,4 @@
-import { createUser, createUserBody, deleteUser, getUser, getUsers, updateUser, updateUserBody } from './users';
-import { createContact, createContactBody } from './contact';
+import { createContact, createContactBody, getContacts } from './contact';
 
 const apiDocumentation = {
   openapi: '3.0.1',
@@ -7,10 +6,9 @@ const apiDocumentation = {
     version: '1.3.0',
     title: 'Agora REST API - Documentation',
     description: '',
-    termsOfService: 'https://mysite.com/terms',
     contact: {
-      name: 'Developer name',
-      email: 'dev@example.com',
+      name: 'Pietro Torrico',
+      email: 'torricopietro@gmail.com',
       url: 'https://devwebsite.com',
     },
     license: {
@@ -30,24 +28,13 @@ const apiDocumentation = {
   ],
   tags: [
     {
-      name: 'Users',
-    },
-    {
       name: 'Contacts',
     },
   ],
   paths: {
-    users: {
-      post: createUser,
-      get: getUsers,
-    },
-    'users/{id}': {
-      delete: deleteUser,
-      get: getUser,
-      patch: updateUser,
-    },
     contacts: {
       post: createContact,
+      get: getContacts,
     },
   },
   components: {
@@ -59,8 +46,6 @@ const apiDocumentation = {
       },
     },
     schemas: {
-      createUserBody,
-      updateUserBody,
       createContactBody,
     },
   },

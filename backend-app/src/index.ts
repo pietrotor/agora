@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import swaggerUi from 'swagger-ui-express';
 
 import { connectToDatabase } from './databaseConnection';
-import { userRoute } from './routes/user.route';
+
 import { apiDocumentation } from './docs/apidoc';
 import { errorHandler } from '@/middlewares/errorHandler';
 import BadRequestError from './errors/BadRequestError';
@@ -22,7 +22,6 @@ app.use(cors({ origin: '*' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use('/api', userRoute());
 app.use('/api', contactRoute());
 app.use('/api/documentation', swaggerUi.serve, swaggerUi.setup(apiDocumentation));
 

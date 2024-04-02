@@ -157,4 +157,32 @@ const createContact = {
   },
 };
 
-export { contactResponse, createContact, createContactBody };
+const getContacts = {
+  tags: ['Contacts'],
+  description: 'Retrieve all contacts',
+  operationId: 'getContacts',
+  security: [
+    {
+      bearerAuth: [],
+    },
+  ],
+  responses: {
+    '200': {
+      description: 'Contacts retrieved successfully!',
+      content: {
+        'application/json': {
+          schema: {
+            type: 'array',
+            items: {
+              type: 'object',
+              properties: contactResponse,
+            },
+          },
+        },
+      },
+    },
+    '500': internalServerError,
+  },
+};
+
+export { contactResponse, createContact, createContactBody, getContacts };
