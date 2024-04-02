@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for agora-rest-api on 2024-04-02T13:49:40-04:00
+# fly.toml app configuration file generated for agora-contact-api on 2024-04-02T16:59:00-04:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'agora-rest-api'
+app = 'agora-contact-api'
 primary_region = 'scl'
 
 [build]
