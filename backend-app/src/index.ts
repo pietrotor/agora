@@ -5,26 +5,43 @@ import swaggerUi from 'swagger-ui-express';
 import { connectToDatabase } from './databaseConnection';
 import { userRoute } from './routes/user.route';
 import { apiDocumentation } from './docs/apidoc';
+import { errorHandler } from '@/middlewares/errorHandler';
+import BadRequestError from './errors/BadRequestError';
+import { contactRoute } from './routes';
 
 dotenv.config();
 
 const HOST = process.env.HOST || 'http://localhost';
-const PORT = parseInt(process.env.PORT || '4500');
+const PORT = parseInt(process.env.PORT || '4000');
 
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use('/', userRoute());
-app.use('/documentation', swaggerUi.serve, swaggerUi.setup(apiDocumentation));
+app.use('/api', userRoute());
+app.use('/api', contactRoute());
+app.use('/api/documentation', swaggerUi.serve, swaggerUi.setup(apiDocumentation));
 
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
   return res.json({ message: 'Hello World!' });
 });
 
+app.use(() => {
+  throw new BadRequestError({
+    code: 404,
+    message: 'Route not found',
+    context: {
+      path: 'Invalid route',
+    },
+  });
+});
+
+app.use(errorHandler);
+
 app.listen(PORT, async () => {
   await connectToDatabase();
-
+  console.log('*******************************');
   console.log(`Application started on URL ${HOST}:${PORT} 🎉`);
+  console.log('*******************************');
 });

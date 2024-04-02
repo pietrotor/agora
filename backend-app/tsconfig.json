@@ -20,14 +20,12 @@
     "target": "es6",
     "lib": ["ES6"],
     "paths": {
-      "@/graphql/*": ["./graphql/*"],
       "@/interfaces/*": ["./interfaces/*"],
-      "@/entities/*": ["./entities/*"],
       "@/lib/*": ["./lib/*"],
       "@/models/*": ["./models/*"],
-      "@/repositories/*": ["./repositories/*"],
-      "@/services/*": ["./services/*"],
-      "@/validators/*": ["./validators/*"]
+      "@/routes/*": ["./routes/*"],
+      "@/errors/*": ["./errors/*"],
+      "@/middlewares/*": ["./middlewares/*"]
     },
     "types": ["node"],
     "esModuleInterop": true,
