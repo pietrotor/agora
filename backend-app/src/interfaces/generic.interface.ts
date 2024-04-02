@@ -12,3 +12,12 @@ export interface IPagination {
   rows?: number;
   filter?: string;
 }
+
+export interface PaginationResponse<T> {
+  data: T[],
+  message: string
+  totalRecords: number,
+  totalPages: number,
+  rows: number,
+  currentPage: number,
+}

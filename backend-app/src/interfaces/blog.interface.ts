@@ -1,5 +1,3 @@
-import { PaginatedResponse } from "./generic.types";
-
 interface BlogEntity {
   source: string;
   author: string;
@@ -11,6 +9,10 @@ interface BlogEntity {
   content: string;
 }
 
-interface BlogResponse extends PaginatedResponse<BlogEntity> {}
+interface BlogResponse {
+  status: string;
+  totalResults: number;
+  articles: BlogEntity[];
+}
 
 export type { BlogResponse, BlogEntity };

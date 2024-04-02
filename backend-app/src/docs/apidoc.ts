@@ -1,4 +1,5 @@
 import { createContact, createContactBody, getContacts } from './contact';
+import { getBlogs } from './blog';
 
 const apiDocumentation = {
   openapi: '3.0.1',
@@ -30,11 +31,17 @@ const apiDocumentation = {
     {
       name: 'Contacts',
     },
+    {
+      name: 'Blogs',
+    },
   ],
   paths: {
     contacts: {
       post: createContact,
       get: getContacts,
+    },
+    blogs: {
+      get: getBlogs,
     },
   },
   components: {

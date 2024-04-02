@@ -1,26 +1,25 @@
 /* eslint-disable multiline-ternary */
 /* eslint-disable quote-props */
-import { useInfiniteQuery } from '@tanstack/react-query';
-import { queryKeys } from './query-keys';
-import newsApi from '@/lib/blogConfig';
-import { BlogResponse } from '@/interfaces';
+import { useInfiniteQuery } from "@tanstack/react-query";
+import { queryKeys } from "./query-keys";
+import newsApi from "@/lib/blogConfig";
+import { BlogResponse } from "@/interfaces";
+import agora2030 from "@/lib/axiosConfig";
 
 export type TGetNews = {
   page?: number;
-  pageSize?: number;
+  rows?: number;
 };
 
 export const getNews = async ({
   page = 1,
-  pageSize = 15,
+  rows = 6,
 }: TGetNews): Promise<BlogResponse> => {
-  return newsApi
-    .get('/everything', {
+  return agora2030
+    .get("/blogs", {
       params: {
         page,
-        pageSize,
-        language: 'es',
-        q: 'a',
+        rows,
       },
     })
     .then(({ data }) => data);

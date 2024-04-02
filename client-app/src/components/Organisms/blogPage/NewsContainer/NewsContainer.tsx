@@ -24,7 +24,7 @@ const NewsContainer = () => {
           <>
             {data?.pages.map((page: BlogResponse) => (
               <>
-                {page.articles
+                {page.data
                   ?.map((item, index) => (
                     <ArticleCard
                       key={index}

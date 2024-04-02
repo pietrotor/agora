@@ -7,7 +7,7 @@ import { connectToDatabase } from './databaseConnection';
 import { apiDocumentation } from './docs/apidoc';
 import { errorHandler } from '@/middlewares/errorHandler';
 import BadRequestError from './errors/BadRequestError';
-import { contactRoute } from './routes';
+import { blogRoute, contactRoute } from './routes';
 import cors from 'cors';
 
 dotenv.config();
@@ -23,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use('/api', contactRoute());
+app.use('/api', blogRoute());
 app.use('/api/documentation', swaggerUi.serve, swaggerUi.setup(apiDocumentation));
 
 app.get('/', (_, res) => {
