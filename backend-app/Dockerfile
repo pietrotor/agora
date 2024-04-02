@@ -1,29 +1,20 @@
-# PROD
-# stage 1: build
+# Use Node 16 alpine as parent image
 FROM node:16-alpine
 
-WORKDIR /usr/app
+# Change the working directory on the Docker image to /app
+WORKDIR /app
 
-# Instalación de dependencias
-COPY package*.json ./
+# Copy package.json and package-lock.json to the /app directory
+COPY package.json package-lock.json ./
+
+# Install dependencies
 RUN npm install
-RUN npm install ts-node tsconfig-paths
-RUN npm i -D typescript
 
-# Copiar archivos de la aplicación
+# Copy the rest of project files into this image
 COPY . .
 
-# Compilar la aplicación
-RUN npm run build
+# Expose application port
+EXPOSE 3000
 
-# Eliminar dependencias de desarrollo
-RUN npm prune --production
-
-# Exponer el puerto
-EXPOSE 4000
-
-# Definir las variables de entorno para ts-node
-ENV TS_NODE_COMPILER_OPTIONS '{"project": "tsconfig.json"}'
-
-# Ejecutar la aplicación
-CMD ["node", "-r", "tsconfig-paths/register", "-r", "ts-node/register/transpile-only", "build/index.js"]
+# Start the application
+CMD npm start

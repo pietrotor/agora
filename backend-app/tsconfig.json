@@ -1,4 +1,12 @@
 {
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  },
+  "plugins": [
+    {
+      "transform": "@zerollup/ts-transform-paths"
+    }
+  ],
   "compilerOptions": {
     "module": "commonjs",
     "sourceMap": true,
