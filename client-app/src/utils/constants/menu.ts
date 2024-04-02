@@ -33,7 +33,7 @@ const MENU: NavItemProps[] = [
   },
   {
     label: "Blog",
-    url: "#",
+    url: "/blog",
   },
   {
     label: "Recursos",

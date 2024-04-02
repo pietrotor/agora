@@ -10,18 +10,21 @@ import Image from "next/image";
 import { useUserNavBarState } from "./hooks";
 import { MenuMobile } from "../MobileMenu";
 import { UserNavBarProps } from "./UserNavBar.types";
+import Link from "next/link";
 
 const UserNavBar = ({ menu }: UserNavBarProps) => {
   const { handleToggle, isMenuOpen } = useUserNavBarState();
   return (
     <header className="w-full bg-white shadow-2xl relative lg:sticky top-0 z-[99]">
       <div className=" flex justify-between max-w-[1140px] px-4 m-auto lg:px-0 py-3 gap-7">
-        <Image
-          width={110}
-          height={80}
-          src={"/assets/images/logo.png"}
-          alt="logo Agora"
-        />
+        <Link href={"/"}>
+          <Image
+            width={110}
+            height={80}
+            src={"/assets/images/logo.png"}
+            alt="logo Agora"
+          />
+        </Link>
         <nav className="lg:flex hidden text-sm items-center gap-6">
           {menu.map((navItem, index) => (
             <NavItem key={index} {...navItem} />

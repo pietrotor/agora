@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "../style/index.css";
+import { TanstackProvider } from "@/lib";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -20,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={manrope.className}>{children}</body>
+      <body className={manrope.className}>
+        <TanstackProvider>{children}</TanstackProvider>
+      </body>
     </html>
   );
 }

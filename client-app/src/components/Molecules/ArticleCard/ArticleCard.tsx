@@ -7,6 +7,8 @@ const ArticleCard = ({
   image,
   title,
   category,
+  url,
+  isExternalUrl = false,
 }: ArticleCardProps) => {
   return (
     <article className="w-full group space-y-5 relative">
@@ -17,7 +19,7 @@ const ArticleCard = ({
       />
       <h4 className="text-inherint font-black text-lg mb-4">{title}</h4>
       <p className="text-inherit text-sm">{description}</p>
-      <Button>
+      <Button href={url} isExternalLink={isExternalUrl}>
         <p className="text-sm text-white">CONOCER MÁS</p>
       </Button>
       <div className="absolute top-0 left-6">

@@ -16,6 +16,9 @@ type ButtonProps = {
   variant?: ButtonVariantEnum;
   type?: HTMLButtonElement["type"];
   size?: ButtonSizeEnum;
+  isLoading?: boolean;
+  href?: string;
+  isExternalLink?: boolean;
 };
 
 export type { ButtonProps };
