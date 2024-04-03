@@ -1,5 +1,5 @@
-import { TableProps } from './Table.types';
-import clsx from 'clsx';
+import { TableProps } from "./Table.types";
+import clsx from "clsx";
 
 const Table = ({
   content,
@@ -28,7 +28,7 @@ const Table = ({
                 className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
               >
                 {rows.map((row, index) => (
-                  <td key={index} className="px-6 py-4">
+                  <td key={index} className="px-6 py-4 dark:text-white">
                     {row}
                   </td>
                 ))}
@@ -44,8 +44,8 @@ const Table = ({
               onClick={() => handleChangePage?.(page + 1)}
               type="button"
               className={clsx(
-                'appearance-none outline-none text-white font-semibold text-base px-4 aspect-square rounded-xl transition-all duration-300',
-                currentPage === page + 1 ? 'bg-primary' : 'bg-gray-300',
+                "appearance-none outline-none text-white font-semibold text-base px-4 aspect-square rounded-xl transition-all duration-300",
+                currentPage === page + 1 ? "bg-primary" : "bg-gray-300"
               )}
               key={page}
             >

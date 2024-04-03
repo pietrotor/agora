@@ -7,6 +7,12 @@ Este proyecto es un monorepo que contiene tanto el backend como el frontend. El 
 Sitio Web:
 https://agora-blond.vercel.app/
 
+Backend:
+
+- https://agora-api-rest.fly.dev/api
+  Swagger
+- https://agora-api-rest.fly.dev/api/documentation
+
 ## Instalación y Ejecución
 
 1. Clona este repositorio:

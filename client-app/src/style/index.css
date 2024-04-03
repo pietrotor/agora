@@ -31,7 +31,7 @@
     @apply font-bold text-2xl text-secondary mb-2;
   }
   p {
-    @apply text-inherit text-text;
+    @apply text-inherit text-text dark:text-white;
   }
   span {
     @apply text-inherit text-text;
