@@ -178,7 +178,7 @@ const ContactForm = () => {
         )}
         <Button
           size={ButtonSizeEnum.LG}
-          disabled={recaptcha.current?.getValue()}
+          disabled={!recaptcha.current?.getValue()}
           onClick={() => {
             if (!recaptcha.current?.getValue()) {
               return;
